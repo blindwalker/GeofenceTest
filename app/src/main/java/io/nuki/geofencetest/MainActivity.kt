@@ -1,6 +1,7 @@
 package io.nuki.geofencetest
 
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import com.pathsense.android.sdk.location.PathsenseLocationProviderApi
 import com.pathsense.android.sdk.location.PathsenseMonitoringGeofenceCallback
@@ -31,7 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         geofenceHandler = GeofenceHandler(PathsenseLocationProviderApi.getInstance(this))
 
-        var a = Integer.parseInt(geofenceIdWork)
+        val permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        ActivityCompat.requestPermissions(this, permissions,0)
 
         fence_output.setText("Checking for Registered Fences")
 
