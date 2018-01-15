@@ -20,6 +20,6 @@ class GeofenceEventReceiver : PathsenseGeofenceEventReceiver() {
                 .setContentText("Event: was " + eventType)
 
         val notificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(Integer.parseInt(geofenceEvent.geofenceId), notification.build())
+        notificationManager.notify(geofenceEvent.geofenceId, 1, notification.build())
     }
 }

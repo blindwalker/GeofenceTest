@@ -11,16 +11,11 @@ class MainActivity : AppCompatActivity() {
 
     val fenceSize = 100
 
-    /**
-     * Id should be an Int wrapped as String to make things easier for now
-     * Pathsense requires Id-Strings and we use this late as NotificationChannelId
-     */
-
-    val geofenceIdWork = "1"
+    val geofenceIdWork = "Home Fence"
     val latWork = 47.059670
     val lonWork = 15.451875
 
-    val geofenceIdHome = "2"
+    val geofenceIdHome = "Work Fence"
     val latHome = 47.068890
     val lonHome = 15.426909
 
@@ -46,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             if (!isMonitoring) {
                 geofenceHandler.addGeofence(fenceId, lat, lon, fenceSize, GeofenceEventReceiver::class.java)
                 geofenceHandler.isMonitoringFence(fenceId, monitoringCallback)
+                fence_output.append("\nregistering "+monitoredFenceId)
             } else {
                 fence_output.append("\n"+monitoredFenceId + " was already registered")
             }
